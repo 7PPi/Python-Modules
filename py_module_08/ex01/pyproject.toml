@@ -1,0 +1,21 @@
+[project]
+name = "matrix-loader"
+version = "0.1.0"
+description = "dependencies loader"
+authors = [
+    {name = "etchipoq"}
+]
+requires-python = ">=3.10"
+dependencies = [
+    "pandas==2.3.3",
+    "numpy==2.2.6",
+    "matplotlib==3.10.8",
+    "requests==2.32.5"
+]
+
+[tool.poetry]
+package-mode = false
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
