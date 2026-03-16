@@ -1,3 +1,4 @@
+"""Module documentation."""
 from .TournamentCard import TournamentCard
 from .TournamentPlatform import TournamentPatform
 

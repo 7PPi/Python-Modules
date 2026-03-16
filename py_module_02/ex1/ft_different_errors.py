@@ -1,4 +1,7 @@
+"""Module documentation."""
+from typing import Any
 def garden_operations() -> None:
+    """garden_operations function."""
     try:
         print("Testing ValueError...")
         int("abc")
@@ -39,6 +42,7 @@ def garden_operations() -> None:
 
 
 def test_error_types() -> None:
+    """test_error_types function."""
     print("=== Garden Error Types Demo ===\n")
     garden_operations()
     print("\nAll error types tested successfully!")

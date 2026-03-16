@@ -1,3 +1,4 @@
+"""Module documentation."""
 from .FantasyCardFactory import FantasyCardFactory
 from .AggressiveStrategy import AggressiveStrategy
 from .GameEngine import GameEngine

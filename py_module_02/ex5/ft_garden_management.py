@@ -1,17 +1,24 @@
+"""Module documentation."""
+from typing import Any
 class GardenError(Exception):
+    """GardenError class."""
     pass
 
 
 class PlantError(GardenError):
+    """PlantError class."""
     pass
 
 
 class WaterError(GardenError):
+    """WaterError class."""
     pass
 
 
 class GardenManager:
+    """GardenManager class."""
     def addplant(self, plantllist: list) -> None:
+        """addplant function."""
         print("\nAdding plants to garden...")
         try:
             for plant in plantllist:
@@ -26,6 +33,7 @@ class GardenManager:
             print("Added all plants successfully")
 
     def waterplant(self, plantllist: list) -> None:
+        """waterplant function."""
         print("\nWatering plants...")
         print("Opening watering system")
         try:
@@ -48,6 +56,7 @@ class GardenManager:
             print("Closing watering system (cleanup)\n")
 
     def check_plant_health(self, plantllist: list) -> None:
+        """check_plant_health function."""
         print("Checking plant health..")
         try:
             for plant in plantllist:
@@ -91,6 +100,7 @@ class GardenManager:
             print("Done checking plant health\n")
 
     def recovery(self, water: int) -> None:
+        """recovery function."""
         print("Testing error recovery...")
         try:
             if int(water) < 2:
@@ -107,6 +117,7 @@ class GardenManager:
 
 
 def test_garden_management() -> None:
+    """test_garden_management function."""
     garden = GardenManager()
     plantllist = [
         ["tomato", 4, 4],

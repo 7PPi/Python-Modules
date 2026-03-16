@@ -1,3 +1,4 @@
+"""Module documentation."""
 import importlib
 import sys
 

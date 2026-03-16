@@ -1,9 +1,12 @@
+"""Module documentation."""
+from typing import Any
 from pydantic import BaseModel, Field
 from typing import Optional
 from datetime import datetime
 
 
 class SpaceStation(BaseModel):
+    """SpaceStation class."""
     station_id: str = Field(min_length=3, max_length=10)
     name: str = Field(min_length=1, max_length=50)
     crew_size: int = Field(ge=1, le=20)
@@ -15,6 +18,7 @@ class SpaceStation(BaseModel):
 
 
 def printstat(station: dict) -> None:
+    """printstat function."""
     print("Valid station created:")
     print(f"ID: {staion.station_id}")
     print(f"Name: {staion.name}")

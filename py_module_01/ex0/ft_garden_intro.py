@@ -1,3 +1,4 @@
+"""Module documentation."""
 if __name__ == "__main__":
     name: str = 'Rose'
     height: float = 25

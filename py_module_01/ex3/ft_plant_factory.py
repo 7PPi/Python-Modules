@@ -1,10 +1,15 @@
+"""Module documentation."""
+from typing import Any
 class Plant:
+    """Plant class."""
     def __init__(self, name: str, height: float, age: int) -> None:
+        """__init__ function."""
         self.name = name
         self.height = height
         self.age = age
 
     def pplant(self) -> None:
+        """pplant function."""
         print(f"Created: {self.name} ({self.height}cm, {self.age} days)")
 
 

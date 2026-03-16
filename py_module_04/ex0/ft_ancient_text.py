@@ -1,4 +1,7 @@
-def ft_ancient_text():
+"""Module documentation."""
+from typing import Any
+def ft_ancient_text() -> Any:
+    """ft_ancient_text function."""
     print("=== CYBER ARCHIVES - DATA RECOVERY SYSTEM ===\n")
     print("Accessing Storage Vault: ancient_fragment.txt")
     try:

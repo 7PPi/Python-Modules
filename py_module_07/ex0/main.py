@@ -1,3 +1,4 @@
+"""Module documentation."""
 from .CreatureCard import CreatureCard
 from .Card import Rarity
 

@@ -1,4 +1,7 @@
+"""Module documentation."""
+from typing import Any
 def check_temperature(temp_str: int) -> None:
+    """check_temperature function."""
     try:
         temp = int(temp_str)
         if (temp > 0 and temp < 40):
@@ -12,6 +15,7 @@ def check_temperature(temp_str: int) -> None:
 
 
 def test_temperature_input() -> None:
+    """test_temperature_input function."""
     print("=== Garden Temperature Checker ===")
 
     temp = 25

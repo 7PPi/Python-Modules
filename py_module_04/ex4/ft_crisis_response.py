@@ -1,4 +1,7 @@
+"""Module documentation."""
+from typing import Any
 def crisis_response(file: str) -> None:
+    """crisis_response function."""
     try:
         print(f"\nCRISIS ALERT: Attempting access to '{file}'...")
         with open(file, 'r') as test:
@@ -15,6 +18,7 @@ def crisis_response(file: str) -> None:
 
 
 def routine_response(file: str) -> None:
+    """routine_response function."""
     try:
         print("\nROUTINE ACCESS: ", end='')
         print(f"Attempting access to '{file}'...")

@@ -1,3 +1,5 @@
+"""Module documentation."""
+from typing import Any
 from .CardFactory import CardFactory
 from .GameStrategy import GameStrategy
 from ex0.CreatureCard import CreatureCard
@@ -5,7 +7,9 @@ from ex1.SpellCard import SpellCard
 
 
 class GameEngine:
+    """GameEngine class."""
     def __init__(self) -> None:
+        """__init__ function."""
         self.factory = None
         self.hand = None
         self.strategy = None
@@ -17,6 +21,7 @@ class GameEngine:
 
     def configure_engine(self, factory: CardFactory,
                          strategy: GameStrategy) -> None:
+        """configure_engine function."""
         self.factory = factory
         self.strategy = strategy
         self.battlefield.append(CreatureCard('Enemy Player', 2, "c", 2, 5))
@@ -24,6 +29,7 @@ class GameEngine:
         self.battlefield.append(SpellCard("Fireball", 3, "rare", "damage"))
 
     def simulate_turn(self) -> dict:
+        """simulate_turn function."""
         if not self.factory or not self.strategy:
             return "ERROR: Must configure engine first"
         self.cards_count = 3
@@ -41,6 +47,7 @@ class GameEngine:
         return result
 
     def get_engine_status(self) -> dict:
+        """get_engine_status function."""
         print("\nGame Report:")
         if not self.factory or not self.strategy:
             return "ERROR: Must simulate turn first"

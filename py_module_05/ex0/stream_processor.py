@@ -1,22 +1,29 @@
+"""Module documentation."""
 from abc import ABC, abstractmethod
 from typing import List, Any, Optional
 
 
 class DataProcessor(ABC):
+    """DataProcessor class."""
     @abstractmethod
     def process(self, data: Any) -> str:
+        """process function."""
         pass
 
     @abstractmethod
     def validate(self, data: Any) -> bool:
+        """validate function."""
         pass
 
     def format_output(self, result: str) -> str:
+        """format_output function."""
         return result
 
 
 class NumericProcessor(DataProcessor):
+    """NumericProcessor class."""
     def process(self, data: List[int]) -> str:
+        """process function."""
         try:
             sum = 0
             count = 0
@@ -31,6 +38,7 @@ class NumericProcessor(DataProcessor):
             return ""
 
     def validate(self, data: List[int]) -> bool:
+        """validate function."""
         try:
             for num in data:
                 int(num)
@@ -45,11 +53,14 @@ class NumericProcessor(DataProcessor):
             return True
 
     def format_output(self, result: str) -> Optional[str]:
+        """format_output function."""
         return super().format_output(result)
 
 
 class TextProcessor(DataProcessor):
+    """TextProcessor class."""
     def process(self, data: str) -> str:
+        """process function."""
         try:
             ch = 0
             count = 1
@@ -63,6 +74,7 @@ class TextProcessor(DataProcessor):
             return ""
 
     def validate(self, data: str) -> bool:
+        """validate function."""
         if isinstance(data, str):
             print("Validation: Text data verified")
             return True
@@ -71,11 +83,14 @@ class TextProcessor(DataProcessor):
             return False
 
     def format_output(self, result: str) -> str:
+        """format_output function."""
         return super().format_output(result)
 
 
 class LogProcessor(DataProcessor):
+    """LogProcessor class."""
     def process(self, data: str) -> str:
+        """process function."""
         log = ""
         msg = ""
         p = False
@@ -103,6 +118,7 @@ class LogProcessor(DataProcessor):
             return ""
 
     def validate(self, data: str) -> bool:
+        """validate function."""
         log = ""
         msg = ""
         p = False
@@ -135,10 +151,12 @@ class LogProcessor(DataProcessor):
             return False
 
     def format_output(self, result: str) -> str:
+        """format_output function."""
         return super().format_output(result)
 
 
 def main() -> None:
+    """main function."""
     print("=== CODE NEXUS - DATA PROCESSOR FOUNDATION ===\n")
     try:
         print("Initializing Numeric Processor...")

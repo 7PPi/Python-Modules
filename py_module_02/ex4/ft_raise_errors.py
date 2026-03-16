@@ -1,10 +1,13 @@
 
 
+"""Module documentation."""
+from typing import Any
 def check_plant_health(
     plant_name: str,
     water_level: int,
     sunlight_hours: int,
 ) -> None:
+    """check_plant_health function."""
     try:
         if plant_name is None:
             raise ValueError("Error: Plant name cannot be empty!")
@@ -33,6 +36,7 @@ def check_plant_health(
 
 
 def test_plant_checks() -> None:
+    """test_plant_checks function."""
     print("=== Garden Plant Health Checker ===")
 
     print("\nTesting good values...")

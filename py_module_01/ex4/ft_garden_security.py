@@ -1,11 +1,16 @@
+"""Module documentation."""
+from typing import Any
 class SecurePlant:
+    """SecurePlant class."""
     def __init__(self, name: str) -> None:
+        """__init__ function."""
         self._name = name
         self._age = 0
         self._height = 0
         print("Plant created: ", name)
 
     def set_height(self, height: float) -> None:
+        """set_height function."""
         if height < 0 or height > 12000:
             print("\nInvalid operation attempted: ", end="")
             print(f"height {height:.0f}cm [REJECTED]")
@@ -18,6 +23,7 @@ class SecurePlant:
             print(f"Height updated: {self._height:.0f}cm [OK]")
 
     def set_age(self, age: int) -> None:
+        """set_age function."""
         if age < 0 or age > 1826250:
             print(f"\nInvalid operation attempted: age {age} days [REJECTED]")
             if age < 0:
@@ -29,12 +35,15 @@ class SecurePlant:
             print(f"Age updated: {age} days [OK]")
 
     def get_age(self) -> int:
+        """get_age function."""
         return self._age
 
     def get_height(self) -> float:
+        """get_height function."""
         return self._height
 
     def get_info(self) -> None:
+        """get_info function."""
         print("\nCurrent plant: ", end="")
         print(f"{self._name} ({self._height}cm, {self._age} days old)")
 

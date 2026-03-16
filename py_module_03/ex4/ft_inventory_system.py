@@ -1,7 +1,10 @@
+"""Module documentation."""
+from typing import Any
 import sys
 
 
 def ft_inventory_system() -> None:
+    """ft_inventory_system function."""
     print("=== Inventory System Analysis ===")
     i: int = 1
     inventory: dict = {}

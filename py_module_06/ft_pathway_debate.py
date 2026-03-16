@@ -1,3 +1,4 @@
+"""Module documentation."""
 from alchemy import transmutation
 import alchemy
 

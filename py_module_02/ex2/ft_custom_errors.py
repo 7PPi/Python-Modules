@@ -1,16 +1,22 @@
+"""Module documentation."""
+from typing import Any
 class GardenError(Exception):
+    """GardenError class."""
     pass
 
 
 class PlantError(GardenError):
+    """PlantError class."""
     pass
 
 
 class WaterError(GardenError):
+    """WaterError class."""
     pass
 
 
 def check_errors() -> None:
+    """check_errors function."""
     print("=== Custom Garden Errors Demo ==")
     try:
         temp = 50

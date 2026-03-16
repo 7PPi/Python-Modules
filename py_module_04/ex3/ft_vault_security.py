@@ -1,3 +1,4 @@
+"""Module documentation."""
 if __name__ == "__main__":
 
     print("=== CYBER ARCHIVES - VAULT SECURITY SYSTEM ===")

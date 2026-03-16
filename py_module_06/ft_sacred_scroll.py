@@ -1,3 +1,4 @@
+"""Module documentation."""
 import alchemy
 from alchemy import elements
 

@@ -1,8 +1,11 @@
+"""Module documentation."""
+from typing import Any
 import sys
 import math
 
 
 def ft_coordinate_system() -> None:
+    """ft_coordinate_system function."""
     coords: tuple = ()
     x: int = 0
     y: int = 0

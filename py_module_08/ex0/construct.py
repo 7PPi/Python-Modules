@@ -1,9 +1,12 @@
+"""Module documentation."""
+from typing import Any
 import sys
 import os
 import site
 
 
 def venv() -> None:
+    """venv function."""
     print("MATRIX STATUS: Welcome to the construct")
 
     print("\nCurrent Python:", sys.executable)
@@ -17,7 +20,8 @@ def venv() -> None:
     print(site.getsitepackages()[0])
 
 
-def genv():
+def genv() -> Any:
+    """genv function."""
     print("MATRIX STATUS: You're still plugged in")
 
     print("\nCurrent Python:", sys.executable)

@@ -1,3 +1,4 @@
+"""Module documentation."""
 import alchemy.elements
 from alchemy.potions import strength_potion
 from alchemy.potions import healing_potion as heal

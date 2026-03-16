@@ -1,4 +1,7 @@
-def ft_archive_creation():
+"""Module documentation."""
+from typing import Any
+def ft_archive_creation() -> Any:
+    """ft_archive_creation function."""
     print("=== CYBER ARCHIVES - PRESERVATION SYSTEM ===\n")
     print("Initializing new storage unit: new_discovery.txt")
     try:

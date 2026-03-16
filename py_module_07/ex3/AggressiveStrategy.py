@@ -1,3 +1,5 @@
+"""Module documentation."""
+from typing import Any
 from ex0.CreatureCard import CreatureCard
 from ex1.SpellCard import SpellCard
 from ex1.ArtifactCard import ArtifactCard
@@ -5,7 +7,9 @@ from .GameStrategy import GameStrategy
 
 
 class AggressiveStrategy(GameStrategy):
+    """AggressiveStrategy class."""
     def execute_turn(self, hand: list, battlefield: list) -> dict:
+        """execute_turn function."""
         mana = 5
         used = 0
         damage = 0
@@ -43,9 +47,11 @@ class AggressiveStrategy(GameStrategy):
         }
 
     def get_strategy_name(self) -> str:
+        """get_strategy_name function."""
         return "AggressiveStrategy"
 
     def prioritize_targets(self, available_targets: list) -> list:
+        """prioritize_targets function."""
         order = []
         order2 = []
         targets = []

@@ -1,25 +1,35 @@
+"""Module documentation."""
+from typing import Any
 class Plant:
+    """Plant class."""
     def __init__(self, name: str, height: float, age: int) -> None:
+        """__init__ function."""
         self.name = name
         self.height = height
         self.age = age
 
 
 class Flower(Plant):
+    """Flower class."""
     def __init__(self, name: str, height: float, age: int, color: str) -> None:
+        """__init__ function."""
         super().__init__(name, height, age)
         self.color = color
 
     def bloom(self) -> None:
+        """bloom function."""
         print(f"{self.name} is blooming beautifully!\n")
 
 
 class Tree(Plant):
+    """Tree class."""
     def __init__(self, name: str, height: float, age: int, t_d: float) -> None:
+        """__init__ function."""
         super().__init__(name, height, age)
         self.t_d = t_d
 
     def produce_shade(self) -> None:
+        """produce_shade function."""
         diameter = self.t_d / 100
         radius = diameter / 2
         shade = 3.1416 * (radius ** 2)
@@ -27,13 +37,16 @@ class Tree(Plant):
 
 
 class Vegetable(Plant):
-    def __init__(self, name, height, age,  h_s: str, n_v: str) -> None:
+    """Vegetable class."""
+    def __init__(self, name: Any, height: Any, age: Any,  h_s: str, n_v: str) -> None:
+        """__init__ function."""
         super().__init__(name, height, age)
         self.h_s = h_s
         self.n_v = n_v
 
 
-def main():
+def main() -> Any:
+    """main function."""
     print("=== Garden Plant Types ===\n")
     garden: list = [
         Flower("Rose", 45, 90, "red"),

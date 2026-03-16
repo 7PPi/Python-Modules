@@ -1,4 +1,7 @@
+"""Module documentation."""
+from typing import Any
 def ft_analystics_dashboard() -> None:
+    """ft_analystics_dashboard function."""
     players: list = [
         ["alice", 2002, True, "north",
          ['first_kill', 'level_10', 'treasure_hunter', 'speed_demon']],

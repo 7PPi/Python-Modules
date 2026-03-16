@@ -1,3 +1,4 @@
+"""Module documentation."""
 from .EliteCard import EliteCard
 
 if __name__ == "__main__":

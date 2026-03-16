@@ -1,3 +1,5 @@
+"""Module documentation."""
+from typing import Any
 from ex0.Card import Card
 from ex0.CreatureCard import CreatureCard
 from .SpellCard import SpellCard
@@ -6,14 +8,18 @@ import random
 
 
 class Deck:
+    """Deck class."""
     def __init__(self) -> None:
+        """__init__ function."""
         self.deck = []
 
     def add_card(self, card: Card) -> None:
+        """add_card function."""
         if isinstance(card, Card):
             self.deck.append(card)
 
     def remove_card(self, card_name: str) -> bool:
+        """remove_card function."""
         for card in self.deck:
             if card == card_name:
                 self.deck.pop(card)
@@ -21,12 +27,15 @@ class Deck:
         return False
 
     def shuffle(self) -> None:
+        """shuffle function."""
         random.shuffle(self.deck)
 
     def draw_card(self) -> Card:
+        """draw_card function."""
         return self.deck.pop()
 
     def get_deck_stats(self) -> dict:
+        """get_deck_stats function."""
         creatures = 0
         spells = 0
         artifacts = 0

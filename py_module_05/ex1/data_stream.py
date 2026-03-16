@@ -1,30 +1,39 @@
+"""Module documentation."""
 from abc import ABC, abstractmethod
 from typing import List, Any, Optional, Dict, Union
 
 
 class DataStream(ABC):
-    def __init__(self, stream_id: str):
+    """DataStream class."""
+    def __init__(self, stream_id: str) -> Any:
+        """__init__ function."""
         self.id = stream_id
 
     @abstractmethod
     def process_batch(self, data_batch: List[Any]) -> str:
+        """process_batch function."""
         pass
 
     def filter_data(self, data_batch: List[Any],
                     criteria: Optional[str] = None) -> List[Any]:
+        """filter_data function."""
         return data_batch
 
     def get_stats(self) -> Dict[str, Union[str, int, float]]:
+        """get_stats function."""
         return {"Stream ID": self.id,
                 "format": f"Stream ID: {self.id}"}
 
 
 class SensorStream(DataStream):
+    """SensorStream class."""
     def __init__(self, stream_id: str) -> None:
+        """__init__ function."""
         super().__init__(stream_id)
         self.type = "Environmental Data"
 
     def process_batch(self, data_batch: List[Dict]) -> str:
+        """process_batch function."""
         operations = 0
         avg = 0
         t = 0
@@ -44,6 +53,7 @@ class SensorStream(DataStream):
 
     def filter_data(self, data_batch: List[Dict],
                     criteria: Optional[str] = None) -> List[Dict]:
+        """filter_data function."""
         if criteria == "high-priority" or criteria == "critical":
             return [{key: value}
                     for data in data_batch
@@ -71,17 +81,21 @@ class SensorStream(DataStream):
                     ]
 
     def get_stats(self) -> Dict:
+        """get_stats function."""
         stat = super().get_stats()
         stat["final"] = f"{stat['format']}, Type: {self.type}"
         return stat
 
 
 class TransactionStream(DataStream):
+    """TransactionStream class."""
     def __init__(self, id: str) -> None:
+        """__init__ function."""
         super().__init__(id)
         self.type = "Financial Data"
 
     def process_batch(self, data_batch: List[Dict]) -> str:
+        """process_batch function."""
         operations = 0
         net = 0
         for stream in data_batch:
@@ -100,6 +114,7 @@ class TransactionStream(DataStream):
 
     def filter_data(self, data_batch: List[Dict],
                     criteria: Optional[str] = None) -> List[Dict]:
+        """filter_data function."""
         if criteria == "high-priority" or criteria == "critical":
             return [{key: value}
                     for data in data_batch
@@ -125,17 +140,21 @@ class TransactionStream(DataStream):
                     ]
 
     def get_stats(self) -> Dict:
+        """get_stats function."""
         stat = super().get_stats()
         stat["final"] = f"{stat['format']}, Type: {self.type}"
         return stat
 
 
 class EventStream(DataStream):
+    """EventStream class."""
     def __init__(self, id: str) -> None:
+        """__init__ function."""
         super().__init__(id)
         self.type = "System Events"
 
     def process_batch(self, data_batch: List) -> str:
+        """process_batch function."""
         event = 0
         err = 0
         for stream in data_batch:
@@ -146,6 +165,7 @@ class EventStream(DataStream):
 
     def filter_data(self, data_batch: List,
                     criteria: Optional[str] = None) -> List:
+        """filter_data function."""
         if criteria == "high-priority" or criteria == "critical":
             return [data for data in data_batch
                     if isinstance(data, str)
@@ -162,16 +182,20 @@ class EventStream(DataStream):
                     ]
 
     def get_stats(self) -> Dict:
+        """get_stats function."""
         stat = super().get_stats()
         stat["final"] = f"{stat['format']}, Type: {self.type}"
         return stat
 
 
 class StreamProcessor():
+    """StreamProcessor class."""
     def __init__(self, streams: List[Any]) -> None:
+        """__init__ function."""
         self.streams = streams
 
     def process_all(self, data_batch: List[Any]) -> None:
+        """process_all function."""
         for stream in self.streams:
             filtered = stream.filter_data(data_batch, "processor")
             buf = stream.process_batch(filtered)

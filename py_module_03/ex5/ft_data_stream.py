@@ -1,7 +1,10 @@
+"""Module documentation."""
+from typing import Any
 import time
 
 
-def fib(max) -> int:
+def fib(max: Any) -> int:
+    """fib function."""
     num: list = [0, 1]
     n: int = 0
     i: int = 0
@@ -13,7 +16,8 @@ def fib(max) -> int:
         i += 1
 
 
-def prime(max) -> int:
+def prime(max: Any) -> int:
+    """prime function."""
     n: int = 2
     i: int = 0
     while i < max:
@@ -29,7 +33,8 @@ def prime(max) -> int:
         n += 1
 
 
-def generator(max) -> list:
+def generator(max: Any) -> list:
+    """generator function."""
     i: int = 0
     names: list = ["alice", "bob", "charlie"]
     actions: list = ["killed monster", "found treasure", "leveled up"]
@@ -54,6 +59,7 @@ def generator(max) -> list:
 
 
 def test_gen() -> None:
+    """test_gen function."""
     data: list = []
     i: int = 0
     high_level: int = 0

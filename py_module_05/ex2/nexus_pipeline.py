@@ -1,14 +1,19 @@
+"""Module documentation."""
 from typing import Protocol, Any, Dict, Union, List
 from abc import ABC, abstractmethod
 
 
 class ProcessingStages(Protocol):
+    """ProcessingStages class."""
     def process(self, data: Any) -> Any:
+        """process function."""
         pass
 
 
 class InputStage():
+    """InputStage class."""
     def process(self, data: Any) -> Dict:
+        """process function."""
         validated = {}
         try:
             if isinstance(data, dict):
@@ -45,7 +50,9 @@ class InputStage():
 
 
 class TransformStage():
+    """TransformStage class."""
     def process(self, data: Any) -> Dict:
+        """process function."""
         try:
             transformed = {}
             if isinstance(data, dict) and "value" in data and "unit" in data:
@@ -91,7 +98,9 @@ class TransformStage():
 
 
 class OutputStage():
+    """OutputStage class."""
     def process(self, data: Union[str, Dict]) -> str:
+        """process function."""
         try:
             output = ""
             if isinstance(data, dict) and "value" in data:
@@ -118,20 +127,25 @@ class OutputStage():
 
 
 class ProcessingPipeline(ABC):
+    """ProcessingPipeline class."""
     def __init__(self, pipeline_id: str) -> None:
+        """__init__ function."""
         self.stages: list = []
         self.pipeline_id = pipeline_id
         self.processed = 0
         self.errors = 0
 
     def add_stage(self, stage: ProcessingStages) -> None:
+        """add_stage function."""
         self.stages.append(stage)
 
     @abstractmethod
     def process(self, data: Any) -> Any:
+        """process function."""
         pass
 
     def run(self, data: Any) -> Any:
+        """run function."""
         format: Any = data
         for stage in self.stages:
             format = stage.process(format)
@@ -142,46 +156,59 @@ class ProcessingPipeline(ABC):
 
 
 class JSONAdapter(ProcessingPipeline):
+    """JSONAdapter class."""
     def __init__(self, pipeline_id: str) -> None:
+        """__init__ function."""
         super().__init__(pipeline_id)
 
     def process(self, data: Dict) -> str:
+        """process function."""
         if not isinstance(data, dict):
             return "ERROR: Invalid data format."
         return self.run(data)
 
 
 class CSVAdapter(ProcessingPipeline):
+    """CSVAdapter class."""
     def __init__(self, pipeline_id: str) -> None:
+        """__init__ function."""
         super().__init__(pipeline_id)
 
     def process(self, data: str) -> str:
+        """process function."""
         if not isinstance(data, str):
             return "ERROR: Invalid data format."
         return self.run(data)
 
 
 class StreamAdapter(ProcessingPipeline):
+    """StreamAdapter class."""
     def __init__(self, pipeline_id: str) -> None:
+        """__init__ function."""
         super().__init__(pipeline_id)
 
     def process(self, data: List) -> str:
+        """process function."""
         if not isinstance(data, List):
             return "ERROR: Invalid data format."
         return self.run(data)
 
 
 class NexusManager():
+    """NexusManager class."""
     def __init__(self) -> None:
+        """__init__ function."""
         self.pipelines: list = []
         self.success = 0
         self.processed = 0
 
     def add_pipeline(self, pipeline: ProcessingPipeline) -> None:
+        """add_pipeline function."""
         self.pipelines.append(pipeline)
         self.processed += 1
 
     def process_data(self, data: Any) -> str:
+        """process_data function."""
         for pipe in self.pipelines:
             if isinstance(pipe, ProcessingPipeline):
                 result = pipe.process(data)
@@ -197,6 +224,7 @@ class NexusManager():
 
 
 def main() -> None:
+    """main function."""
     print("=== CODE NEXUS - ENTERPRISE PIPELINE SYSTEM ===")
 
     print("\nInitializing Nexus Manager...")

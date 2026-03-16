@@ -1,3 +1,5 @@
+"""Module documentation."""
+from typing import Any
 from pydantic import BaseModel, model_validator, Field
 from enum import Enum
 from datetime import datetime
@@ -5,6 +7,7 @@ from typing import List
 
 
 class Rank(Enum):
+    """Rank class."""
     CADET = "cadet"
     OFFICER = "officer"
     LIEUTENANT = "lieutenant"
@@ -13,6 +16,7 @@ class Rank(Enum):
 
 
 class CrewMember(BaseModel):
+    """CrewMember class."""
     member_id: str = Field(min_length=1, max_length=10)
     name: str = Field(min_length=2, max_length=50)
     rank: Rank
@@ -23,6 +27,7 @@ class CrewMember(BaseModel):
 
 
 class SpaceMission(BaseModel):
+    """SpaceMission class."""
     mission_id: str = Field(min_length=5, max_length=15)
     mission_name: str = Field(min_length=3, max_length=100)
     destination: str = Field(min_length=3, max_length=50)
@@ -33,7 +38,8 @@ class SpaceMission(BaseModel):
     budget_millions: float = Field(ge=1.0, le=1000000.0)
 
     @model_validator(mode='after')
-    def validate(self):
+    def validate(self) -> Any:
+        """validate function."""
         if self.mission_id[0] != 'M':
             raise ValueError(" Mission ID must start with 'M'")
         leader = False
@@ -58,6 +64,7 @@ class SpaceMission(BaseModel):
 
 
 def main() -> None:
+    """main function."""
     print("Space Mission Crew Validation")
     print("=========================================")
     print("Valid mission created:")

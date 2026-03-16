@@ -1,4 +1,7 @@
+"""Module documentation."""
+from typing import Any
 def water_plants(plant_list: list) -> None:
+    """water_plants function."""
     print("Opening watering system")
     success = True
     try:
@@ -17,6 +20,7 @@ def water_plants(plant_list: list) -> None:
 
 
 def test_watering_system() -> None:
+    """test_watering_system function."""
     print("=== Garden Watering System ===")
     plant = ["tomato", "lettuce", "carrot"]
     print("\nTesting normal watering...")

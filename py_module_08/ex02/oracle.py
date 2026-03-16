@@ -1,3 +1,4 @@
+"""Module documentation."""
 from dotenv import load_dotenv
 import os
 

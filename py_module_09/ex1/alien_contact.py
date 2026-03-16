@@ -1,3 +1,5 @@
+"""Module documentation."""
+from typing import Any
 from pydantic import BaseModel, model_validator, Field
 from datetime import datetime
 from enum import Enum
@@ -5,6 +7,7 @@ from typing import Optional
 
 
 class ContactType(Enum):
+    """ContactType class."""
     RADIO = "radio"
     VISUAL = "visual"
     PHYSICAL = "physical"
@@ -12,6 +15,7 @@ class ContactType(Enum):
 
 
 class AlienContact(BaseModel):
+    """AlienContact class."""
     contact_id: str = Field(min_length=5, max_length=15)
     timestamp: datetime
     location: str = Field(min_length=3, max_length=300)
@@ -23,7 +27,8 @@ class AlienContact(BaseModel):
     is_verified: bool = Field(default=None)
 
     @model_validator(mode='after')
-    def validate(self):
+    def validate(self) -> Any:
+        """validate function."""
         if self.contact_id[0:2] != "AC":
             raise ValueError("Contact ID must start with 'AC '(Alien Contact)")
         if (self.contact_type == ContactType.PHYSICAL

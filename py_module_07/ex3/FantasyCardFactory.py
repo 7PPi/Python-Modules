@@ -1,3 +1,5 @@
+"""Module documentation."""
+from typing import Any
 from .CardFactory import CardFactory
 from ex0.Card import Card, Rarity
 from ex0.CreatureCard import CreatureCard
@@ -7,7 +9,9 @@ import random
 
 
 class FantasyCardFactory(CardFactory):
+    """FantasyCardFactory class."""
     def __init__(self) -> None:
+        """__init__ function."""
         self._creature = {
             "dragon": ("Fire Dragon", 5, Rarity.LEGENDARY.value, 7, 5),
             "goblin": ("Goblin", 2, Rarity.LEGENDARY.value, 2, 1)
@@ -24,6 +28,7 @@ class FantasyCardFactory(CardFactory):
         }
 
     def create_creature(self, name_or_power: str | int | None = None) -> Card:
+        """create_creature function."""
         if name_or_power in self._creature:
             (name, cost, rarity, attack,
              health) = self._creature[name_or_power]
@@ -34,6 +39,7 @@ class FantasyCardFactory(CardFactory):
             return CreatureCard(name, cost, rarity, attack, health)
 
     def create_spell(self, name_or_power: str | int | None = None) -> Card:
+        """create_spell function."""
         if name_or_power in self._spell:
             (name, cost, rarity, effect) = self._spell[name_or_power]
             return SpellCard(name, cost, rarity, effect)
@@ -43,6 +49,7 @@ class FantasyCardFactory(CardFactory):
             return SpellCard(name, cost, rarity, effect)
 
     def create_artifact(self, name_or_power: str | int | None = None) -> Card:
+        """create_artifact function."""
         if name_or_power in self._artifact:
             (name, cost, rarity, durability,
              effect) = self._artifact[name_or_power]
@@ -53,6 +60,7 @@ class FantasyCardFactory(CardFactory):
             return ArtifactCard(name, cost, rarity, durability, effect)
 
     def create_themed_deck(self, size: int) -> dict:
+        """create_themed_deck function."""
         deck = {
             "creatures": [],
             "spells": [],
@@ -69,6 +77,7 @@ class FantasyCardFactory(CardFactory):
         return deck
 
     def get_supported_types(self) -> dict:
+        """get_supported_types function."""
         return {
             "creatures": list(self._creature),
             "spells": list(self._spell),
